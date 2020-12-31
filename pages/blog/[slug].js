@@ -18,8 +18,8 @@ function index(props) {
 
 
 export async function getStaticProps(){
-    const res = await fetch(`${process.env.DOMAIN}/api/hello`);
-    const post = await res.text()
+    // const res = await fetch(`${process.env.DOMAIN}/api/hello`);
+    // const post = await res.text()
 
     return {
         props :{
