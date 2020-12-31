@@ -1,0 +1,49 @@
+@charset "utf-8";
+@import "~bulma/bulma";
+@import "./fontawesome/fontawesome";
+@import "./fontawesome/brands";
+@import "./fontawesome/regular";
+@import "./fontawesome/solid";
+
+
+
+.mx-3-desktop{
+  @include until($desktop){
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+}
+
+// @each $property, $shortcut in $spacing-shortcuts{
+//   @each $name, $value in $spacing-values{
+//     // All directions
+//     .#{$shortcut}-#{$name}{
+//       #{$property}: $value !important
+//     }
+//     // Cardinal directions
+//     @each $direction, $suffix in $spacing-directions{
+//       .#{$shortcut}#{$suffix}-#{$name}{
+//         #{$property}-#{$direction}: $value !important
+//       }
+//     }
+//       // Horizontal axis
+//     @if $spacing-horizontal != null{
+
+//     }
+//       .#{$shortcut}#{$spacing-horizontal}-#{$name}
+//         #{$property}-left: $value !important
+//         #{$property}-right: $value !important
+//     // Vertical axis
+//     @if $spacing-vertical != null
+//       .#{$shortcut}#{$spacing-vertical}-#{$name}
+//         #{$property}-top: $value !important
+//         #{$property}-bottom: $value !important
+
+//   }
+// }
+
+.home-featured{
+  @include from($tablet){
+    flex-direction: row-reverse;   
+  }
+}
