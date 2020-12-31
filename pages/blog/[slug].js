@@ -8,7 +8,8 @@ function index(props) {
         <Header/>
             <main className="container is-max-desktop py-6 mx-3-desktop">
                 <div className="mt-6">
-                    <div dangerouslySetInnerHTML={{ __html: props.post }} />          
+                    {/* <div dangerouslySetInnerHTML={{ __html: props.post }} />           */}
+
                 </div>
             </main>
         <Footer/>
@@ -23,7 +24,7 @@ export async function getStaticProps(){
 
     return {
         props :{
-            post
+            // post
         }
     }
 }
