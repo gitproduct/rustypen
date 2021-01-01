@@ -1,44 +1,30 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import Link from 'next/link';
 
-function index() {
+function index({posts}) {
     return (
         <div className="columns is-multiline  is-variable is-4">
-            <div className="column is-half">
-                <div className="card">
-                    <div className="card-content">
-                        <h3 className="title is-4 ">Everything I Know About Style Guides, Design Systems, and Component Libraries</h3>
-                        <p className="is-6">For the better part of the last year, I've been investing heavily in front-end development and design. When I started my new role at Hy-Vee, I identified a need for a component library and created it. </p>
-                        <div className="has-text-right mt-4">
-                            <time dateTime="2016-1-1">1 Jan 2016</time>
-                        </div>
+            {
+                posts.map((post, index)=><Fragment key={index}>
+                    <div className="column is-half">
+                        <Link href={'/blog/'+post.slug}>
+                            <a className="card is-block">
+                                <div className="card-content">
+                                    <h3 className="title is-4 is-capitalized">
+                                        {post.title}
+                                    </h3>
+                                    <p className="is-6">For the better part of the last year, I've been investing heavily in front-end development and design. When I started my new role at Hy-Vee, I identified a need for a component library and created it. </p>
+                                    <div className="has-text-right mt-4">
+                                        <time>{new Date(post.published_date).toDateString()}</time>
+                                    </div>
+                                </div>
+                            </a>
+                        </Link>
                     </div>
-                </div>
-            </div>
-            <div className="column is-half">
-                <div className="card">
-                    <div className="card-content">
-                        <h3 className="title is-4 ">Everything I Know About Style Guides, Design Systems, and Component Libraries</h3>
-                        <p className="is-6">For the better part of the last year, I've been investing heavily in front-end development and design. When I started my new role at Hy-Vee, I identified a need for a component library and created it. </p>
-                        <div className="has-text-right mt-4">
-                            <time dateTime="2016-1-1">1 Jan 2016</time>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="column is-half">
-                <div className="card">
-                    <div className="card-content">
-                        <h3 className="title is-4 ">Everything I Know About Style Guides, Design Systems, and Component Libraries</h3>
-                        <p className="is-6">For the better part of the last year, I've been investing heavily in front-end development and design. When I started my new role at Hy-Vee, I identified a need for a component library and created it. </p>
-                        <div className="has-text-right mt-4">
-                            <time dateTime="2016-1-1">1 Jan 2016</time>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                </Fragment>)
+            }
         </div>
     )
 }
 
-export default index
+export default index;

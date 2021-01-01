@@ -2,7 +2,7 @@ import React from 'react'
 
 function index() {
     return (
-        <div className="notification is-primary">
+        <div className="notification has-background-warning">
             <h4 className="title is-3">
                 Hi there,
             </h4>
