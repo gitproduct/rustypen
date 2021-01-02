@@ -1,4 +1,4 @@
-// import Head from 'next/head'
+import Head from '../components/head'
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Featured from '../components/featured';
@@ -11,13 +11,12 @@ export default function Home({featured, posts}) {
   
   return (
     <>
+      <Head
+        title="Rustypen | A blog about anything"
+        desc="Rustypen is a personal blog owned and managed by sonu nigam, A tech enthusiast."
+      />
       <Header/>
       <main className="container is-max-desktop py-6 mx-3-desktop">
-        <style jsx>{`
-          .featured{
-
-          }
-        `}</style>
         <div className="columns home-featured">
           <div className="column is-5">
             <About/>

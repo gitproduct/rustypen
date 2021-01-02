@@ -65,14 +65,14 @@ function index() {
                                 Blog
                             </a>
                         </Link>
-                        <Link href="/portfolio">
-                            <a className="navbar-item">
-                                Portfolio
-                            </a>
-                        </Link>
                         <Link href="/about">
                             <a className="navbar-item">
                                 About
+                            </a>
+                        </Link>
+                        <Link href="/contact">
+                            <a className="navbar-item">
+                                Contact
                             </a>
                         </Link>
                     </div>

@@ -13,8 +13,9 @@ db.defaults({ posts: [], count: 0 }).write();
 
 class index{
   slugs(){
-    const data = db.get('posts').value();
-    const slugs = data.map((post)=>post.slug);
+    // const data = db.get('posts').value();
+    // const slugs = data.map((post)=>post.slug);
+    const slugs = db.get('posts').map('slug').value();
     return slugs;
   }
 

@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 function index({posts}) {
 
-    console.log(posts)
     return (
         posts.map((post, index)=><Fragment key={index}>
                 <Link href={'/blog/'+post.slug}>

@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import data from '../../data';
-import Image from 'next/image'
+import Image from 'next/image';
+import Head from '../../components/head';
 
 
 function index({content, header}) {
@@ -29,6 +30,10 @@ function index({content, header}) {
 
     return (
         <>
+        <Head
+            title="Rustypen | A blog about anything"
+            desc="Rustypen is a personal blog owned and managed by Sonu Nigam, A tech enthusiast."
+        />
         <Header/>
             <main className="container is-max-desktop py-6 mx-3-desktop">
                 <div className="mt-6">
@@ -41,7 +46,6 @@ function index({content, header}) {
                         alt={header.title}
                         className="auto-image mb-5"
                     />
-                    
                     <div dangerouslySetInnerHTML={{ __html: content }} ref={contentRef}/>
                 </div>
             </main>
