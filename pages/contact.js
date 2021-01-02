@@ -17,13 +17,6 @@ function contact() {
       <h3 className="title is-5 has-text-grey">Let me build the website you need.</h3>
       <h2 className="title has-text-grey">Contact</h2>
       <ul>
-        {/* <li className="pt-3">
-          <Link href="/">
-            <a className="is-size-4">
-              Twitter
-            </a>
-          </Link>
-        </li> */}
         <li className="pt-3">
           <Link href="https://www.linkedin.com/in/sonu-nigam/">
             <a className="is-size-4">

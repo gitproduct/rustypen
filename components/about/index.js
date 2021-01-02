@@ -16,6 +16,7 @@ function index() {
                 height="100"
                 width="100"
                 objectFit="contain"
+                alt="hello from rustypen"
             />
             <p className="subtitle is-5 mt-5">A Frontend web developer</p>
             <div>
