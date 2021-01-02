@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 
 function index() {
+    const [menuState, setMenuState] = useState(false);
+    // const menuRef = useRef();
+    // let menuState = false;
 
-    let menuState = false;
+    // const activeMenu = (burger, menu)=>{
+    //     burger.target.classList.add('is-active');
+    //     document.querySelector(menu).classList.add('is-active');
+    //     document.querySelector(menu).setAttribute("aria-expanded", true);
+    //     menuState = true;
+    // }
 
-    const activeMenu = (burger, menu)=>{
-        burger.target.classList.add('is-active');
-        document.querySelector(menu).classList.add('is-active');
-        document.querySelector(menu).setAttribute("aria-expanded", true);
-        menuState = true;
-    }
+    // const deactiveMenu = (burger, menu)=>{
+    //     burger.target.classList.remove('is-active');
+    //     document.querySelector(menu).classList.remove('is-active');
+    //     document.querySelector(menu).setAttribute("aria-expanded", false);
+    //     menuState = false;
+    // }
 
-    const deactiveMenu = (burger, menu)=>{
-        burger.target.classList.remove('is-active');
-        document.querySelector(menu).classList.remove('is-active');
-        document.querySelector(menu).setAttribute("aria-expanded", false);
-        menuState = false;
-    }
+    // const menuToggle = e=>{
+    //     e.preventDefault();
+    //     const target = e.target.dataset.target;
+    //     menuState ? deactiveMenu(e, target) : activeMenu(e, target)
+    // }
 
     const menuToggle = e=>{
         e.preventDefault();
-        const target = e.target.dataset.target;
-        menuState ? deactiveMenu(e, target) : activeMenu(e, target)
+        // console.log(menuRef.current)
+        setMenuState(state=>!state)
     }
 
 
@@ -47,13 +54,13 @@ function index() {
                         </a>
                     </Link>
 
-                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <a role="button" className={`navbar-burger ${menuState && 'is-active'}`} aria-label="menu" aria-expanded={menuState} onClick={menuToggle}>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-                <div className="navbar-menu">
+                <div className={`navbar-menu ${menuState && 'is-active'}`}>
                     <div className="navbar-end">
                         <Link href="/">
                             <a className="navbar-item">
