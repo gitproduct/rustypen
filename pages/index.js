@@ -41,7 +41,7 @@ export default function Home({featured, posts}) {
 export async function getStaticProps(){
   const headers = await data.getAllPostHeader();
   const featured = headers.filter((post, index)=>index<=1);
-  const posts = headers.filter((post, index)=>(index>=1 && index<=5));
+  const posts = headers;
 
   return {
     props :{
