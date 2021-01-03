@@ -3,7 +3,7 @@
     {
       "title": "Custom GraphQL Server with Nextjs",
       "feature_image": "/uploads/nextjs-graphql.jpg",
-      "excerpt": "sometimes people want only graphql functionality, not those extra libraries that came with those prebuilt servers and they went to build there own custom GraphQL Server instead of using existed one. So, here I wrote down all the steps to build one.",
+      "excerpt": "sometimes people want only graphql functionality, not those extra libraries that came with those prebuilt servers and they went to build there own custom GraphQL Server instead of using ...",
       "slug": "custom-graphql-server-with-nextjs",
       "published": true,
       "published_date": "2021-01-03T15:36:54.971Z",

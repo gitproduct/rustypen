@@ -9,7 +9,7 @@ function index({posts}) {
                     <a>
                         <article className="mt-5 py-1">
                             <h3 className="title is-4 is-capitalized">{post.title}</h3>
-                            <p className="subtitle is-6">{post.excerpt}</p>
+                            <p className="subtitle is-6 is-capitalized">{post.excerpt}</p>
                         </article>
                     </a>
                 </Link>

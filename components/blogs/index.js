@@ -13,7 +13,7 @@ function index({posts}) {
                                     <h3 className="title is-4 is-capitalized">
                                         {post.title}
                                     </h3>
-                                    <p className="is-6">For the better part of the last year, I've been investing heavily in front-end development and design. When I started my new role at Hy-Vee, I identified a need for a component library and created it. </p>
+                                    <p className="is-6 is-capitalized">{post.excerpt}</p>
                                     <div className="has-text-right mt-4">
                                         <time>{new Date(post.published_date).toDateString()}</time>
                                     </div>

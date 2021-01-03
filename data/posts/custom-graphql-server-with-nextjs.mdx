@@ -14,47 +14,50 @@ If you want to use Apollo-GraphQL with Nextjs [here](https://github.com/vercel/n
 But sometimes people want only graphql functionality, not those extra libraries that came with those prebuilt servers and they went to build there own custom GraphQL Server instead of using existed one. So, here I wrote down all the steps to build one.
 
 ## How to build a custom GraphQL Server?
-Steps 
+
 1. Create nextjs app using "npx create-next-app next-graphql".
 2. cd to the next-graphql directory and run "npm run dev". Your screen would look like this. 
 ![](/uploads/nextjs-homepage.jpg)
-3. Now create a graphql API route by creating a graphql.js file at this location /pages/api/graphql.js. Put the below code inside the file and then access localhost:3000/api/graphql.
+3. Now create a graphql API route by creating a graphql.js file at this location /pages/api/graphql.js. Put the below code inside the file and then access localhost:3000/api/graphql. 
 ```
 export default (req, res) => {
-		res.statusCode = 200
-		res.end("Hello from graphql")
-}
+	res.statusCode = 200
+	res.end("Hello from graphql")
+} 
 ```
-You will get a response like this, 
+4. You will get a response like this, 
+
 ![](/uploads/graphql-api.jpg)
-Congrats you have created a graphql api.
-4. Now to build the graphql sever we have to install graphql library. use ```npm i graphql```.
-5. Now create a schema, root resolver and query to fetch the data.
+
+
+
+5. Congrats you have created a graphql api. Now to build the graphql sever we have to install graphql library. use ```npm i graphql```.
+6. Now create a schema, root resolver and query to fetch the data.
 ```
 import { graphql, buildSchema } from 'graphql';
 export default (req, res) => {
-	// Construct a schema, using GraphQL schema language
-  	var schema = buildSchema(`
+// Construct a schema, using GraphQL schema language
+	var schema = buildSchema(`
 		type Query {
-      		user: String
-    	}
-	`);
+			user: String
+		}
+`);
  
-  // The root provides a resolver function for each API endpoint  
+// The root provides a resolver function for each API endpoint  
   var root = {
   	user: () => {
-		return 'Jane Foster';
+			return 'Jane Foster';
 		}
-  	};
+	};
  
   // Run the GraphQL query '{ user }' and print out the response
   graphql(schema, query, root).then((response) => {
-  		res.statusCode = 200
+		res.statusCode = 200
 		res.json(response)
 	});
 }
 ```
 
-6. Access localhost:3000/api/graphql and you see the response. And to make the server listen the api body assign ``` const query to req.body.query```;
+7. Access localhost:3000/api/graphql and you see the response. And to make the server listen the api body assign ``` const query to req.body.query```;
 
 You can also use the codebase available at [this](https://github.com/rustypen/next-graphql) git repository.
