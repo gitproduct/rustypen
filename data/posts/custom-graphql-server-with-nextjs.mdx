@@ -1,0 +1,60 @@
+# Custom GraphQL Server with Nextjs
+Nextjs is a popular Reactjs framework. Developers find it easy to build a web application with it for Development and Production phase. It provides features like Server-side Rendering, Static-Site-generation, Api routes, custom server, typescript support and many more out of the box which helps developers to spent more time on building applications rather than setting boilerplate for the application. 
+
+GraphQL is another technology which is becoming popular amongst developers. It provides a different approach to interact with an API than what you would expect with a traditional REST API.
+
+## Few words about GraphQL
+According to GraphQL documentation "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data". Whenever we would like to access or fetch data, we have to send queries to GraphQL server instead of parameters that would be pass using traditional REST API. And to pass the query we have to use the POST method and send the query as a string the body of the API. But we are not restricted to the POST method we can also use the GET method for the queries. In the GET method instead of passing query inside of the body, we send it in the URL as parameters, but it is not recommended because URL string will become too large to handle.
+
+## How to use GraphQL with Nextjs?
+There are many GraphQL servers currently available. Some of them are Apollo server, Express GraphQL, URQL, graphql-yoga. And to learn how to implement them with the Nextjs, there are already many articles on the internet.
+
+If you want to use Apollo-GraphQL with Nextjs [here](https://github.com/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client) is the example provided the Nextjs developers itself. Or if you like to use Express GraphQL with Nextjs [here](https://developer.okta.com/blog/2018/10/11/build-simple-web-app-with-express-react-graphql) is the tutorial explained by Braden.
+
+But sometimes people want only graphql functionality, not those extra libraries that came with those prebuilt servers and they went to build there own custom GraphQL Server instead of using existed one. So, here I wrote down all the steps to build one.
+
+## How to build a custom GraphQL Server?
+Steps 
+1. Create nextjs app using "npx create-next-app next-graphql".
+2. cd to the next-graphql directory and run "npm run dev". Your screen would look like this. 
+![](/uploads/nextjs-homepage.jpg)
+3. Now create a graphql API route by creating a graphql.js file at this location /pages/api/graphql.js. Put the below code inside the file and then access localhost:3000/api/graphql.
+```
+export default (req, res) => {
+		res.statusCode = 200
+		res.end("Hello from graphql")
+}
+```
+You will get a response like this, 
+![](/uploads/graphql-api.jpg)
+Congrats you have created a graphql api.
+4. Now to build the graphql sever we have to install graphql library. use ```npm i graphql```.
+5. Now create a schema, root resolver and query to fetch the data.
+```
+import { graphql, buildSchema } from 'graphql';
+export default (req, res) => {
+	// Construct a schema, using GraphQL schema language
+  	var schema = buildSchema(`
+		type Query {
+      		user: String
+    	}
+	`);
+ 
+  // The root provides a resolver function for each API endpoint  
+  var root = {
+  	user: () => {
+		return 'Jane Foster';
+		}
+  	};
+ 
+  // Run the GraphQL query '{ user }' and print out the response
+  graphql(schema, query, root).then((response) => {
+  		res.statusCode = 200
+		res.json(response)
+	});
+}
+```
+
+6. Access localhost:3000/api/graphql and you see the response. And to make the server listen the api body assign ``` const query to req.body.query```;
+
+You can also use the codebase available at [this](https://github.com/rustypen/next-graphql) git repository.

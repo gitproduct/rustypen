@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Head from '../../components/head';
 
 
-function index({content, header}) {
+function index({meta , content, header}) {
     const [timeToRead, setTimeToRead] = useState(1);
     const contentRef = React.useRef();
 
@@ -31,8 +31,8 @@ function index({content, header}) {
     return (
         <>
         <Head
-            title="Rustypen | A blog about anything"
-            desc="Rustypen is a personal blog owned and managed by Sonu Nigam, A tech enthusiast."
+            title={meta.title+` | Rustypen | A blog about anything`}
+            desc={meta.description+` | Rustypen | A blog about anything`}
         />
         <Header/>
             <main className="container is-max-desktop py-6 mx-3-desktop">
@@ -41,12 +41,12 @@ function index({content, header}) {
                     <p className="subtitle is-6 has-text-grey">
                         <time>{new Date(header.published_date).toDateString()}</time> • {timeToRead}
                     </p>
-                    <img 
+                    <img
                         src={header.feature_image}
                         alt={header.title}
                         className="auto-image mb-5"
                     />
-                    <div dangerouslySetInnerHTML={{ __html: content }} ref={contentRef}/>
+                    <div dangerouslySetInnerHTML={{ __html: content }} ref={contentRef} className="content"/>
                 </div>
             </main>
         <Footer/>
@@ -57,10 +57,12 @@ function index({content, header}) {
 
 export async function getStaticProps({params}){
     const header = await data.getPostHeader(params.slug)
+    const meta = await data.getPostMeta(params.slug)
     const content = await data.getPostContent(params.slug)
 
     return {
         props :{
+            meta,
             header,
             content
         }

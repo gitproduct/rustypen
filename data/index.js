@@ -3,6 +3,7 @@ import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 import remark from 'remark';
 import html from 'remark-html';
+import fs from 'fs';
 
 
 const adapter = new FileSync(path.resolve(process.cwd(),'data/data.json'));
@@ -21,7 +22,9 @@ class index{
 
   async getPostContent(slug){
     const post = db.get('posts').find({slug:slug}).value();
-    const content = await remark().use(html).process(post.content);
+    const postsPath = path.resolve(process.cwd(), `data/posts/${post.slug}.mdx`);
+    const postContent = fs.readFileSync(postsPath, 'utf-8');
+    const content = await remark().use(html).process(postContent);
     return content.toString();
   }
 
@@ -33,6 +36,15 @@ class index{
       "published_date": post.published_date
     }
     return header;
+  }
+
+  getPostMeta(slug){
+    const post = db.get('posts').find({slug:slug}).value();
+    const meta = {
+      "title": post.title,
+      "description": post.excerpt,
+    }
+    return meta;
   }
 
   getAllPostHeader(){

@@ -1,29 +1,13 @@
 {
   "posts": [
     {
-      "title": "first",
-      "feature_image": "/uploads/julius-caesar.png",
-      "excerpt": "It's very easy to make some words **bold** and other words *italic* with Markdown. ",
-      "meta_title": "dsfsdgsa | Shadymind",
-      "meta_desc": "It's very easy to make some words **bold** and other words *italic* with Markdown. ",
-      "content": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)",
-      "slug": "first",
+      "title": "Custom GraphQL Server with Nextjs",
+      "feature_image": "/uploads/nextjs-graphql.jpg",
+      "excerpt": "sometimes people want only graphql functionality, not those extra libraries that came with those prebuilt servers and they went to build there own custom GraphQL Server instead of using existed one. So, here I wrote down all the steps to build one.",
+      "slug": "custom-graphql-server-with-nextjs",
       "published": true,
-      "published_date": "2020-10-03T15:36:54.971Z",
-      "modified_date": "2020-10-03T15:36:54.971Z",
-      "featured": "true"
-    },
-    {
-      "title": "second",
-      "feature_image": "/uploads/julius-caesar.png",
-      "excerpt": "It's very easy to make some words **bold** and other words *italic* with Markdown. ",
-      "meta_title": "dsfsdgsa | Shadymind",
-      "meta_desc": "It's very easy to make some words **bold** and other words *italic* with Markdown. ",
-      "content": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)",
-      "slug": "second",
-      "published": true,
-      "published_date": "2020-10-03T15:36:54.971Z",
-      "modified_date": "2020-10-03T15:36:54.971Z",
+      "published_date": "2021-01-03T15:36:54.971Z",
+      "modified_date": "2021-01-03T15:36:54.971Z",
       "featured": "true"
     }
   ],
